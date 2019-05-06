@@ -23,6 +23,39 @@ import java.util.ArrayList;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<String> alString = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            alString.add(reader.readLine());
+        }
+        String sMax = alString.get(1);
+        int iMax = 1;
+        String sMin = alString.get(0);
+        int iMin = 0;
+        for (int i = 0; i < alString.size() - 1; i++) {
+            if ((i == 0)&(alString.get(i).length() > alString.get(i + 1).length())) {
+                sMax = alString.get(i);
+                iMax = i;
+                sMin = alString.get(i + 1);
+                iMin = i + 1;
+            }
+            if (i != 0) {
+                if (alString.get(i).length() > sMax.length()) {
+                    sMax = alString.get(i);
+                    iMax = i;
+                }
+                if (alString.get(i).length() < sMin.length()) {
+                    sMin = alString.get(i);
+                    iMin = i;
+                }
+            }
+        }
+        if (alString.get(0).length() == sMax.length()) {
+            sMax = alString.get(0);
+            iMax = 0;
+        }
+        if (iMin < iMax ) System.out.println(sMin);
+        else System.out.println(sMax);
     }
 }
