@@ -28,10 +28,26 @@ import java.util.List;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        //напишите тут ваш код
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<Integer> alInput = new ArrayList<>();
+        ArrayList<Integer> al3 = new ArrayList<>();
+        ArrayList<Integer> al2 = new ArrayList<>();
+        ArrayList<Integer> alOther = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            alInput.add(Integer.parseInt(reader.readLine()));
+            if (alInput.get(i) % 3 == 0) al3.add(alInput.get(i));
+            if (alInput.get(i) % 2 == 0) al2.add(alInput.get(i));
+            if ((alInput.get(i) % 3 != 0) & (alInput.get(i) % 2 !=0)) alOther.add(alInput.get(i));
+        }
+        printList(alInput);
+        printList(al3);
+        printList(al2);
+        printList(alOther);
     }
 
     public static void printList(List<Integer> list) {
-        //напишите тут ваш код
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
     }
 }
