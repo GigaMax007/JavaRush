@@ -2,7 +2,9 @@ package com.javarush.task.task07.task0724;
 
 /* 
 Семейная перепись
-Создай класс Human с полями имя(String), пол(boolean), возраст(int), отец(Human), мать(Human). Создай объекты и заполни их так, чтобы получилось: Два дедушки, две бабушки, отец, мать, трое детей. Вывести объекты на экран.
+Создай класс Human с полями имя(String), пол(boolean), возраст(int), отец(Human), мать(Human).
+Создай объекты и заполни их так, чтобы получилось: Два дедушки, две бабушки, отец, мать, трое детей.
+Вывести объекты на экран.
 
 Примечание:
 Если написать свой метод String toString() в классе Human, то именно он будет использоваться при выводе объекта на экран.
@@ -24,11 +26,46 @@ package com.javarush.task.task07.task0724;
 
 public class Solution {
     public static void main(String[] args) {
-        // напишите тут ваш код
+        Human valentina = new Human("Валентина", false, 90);
+        Human vasya = new Human("Василий", true, 96);
+        Human tanya = new Human("Татьяна", false, 96);
+        Human kolya = new Human("Николай", true, 100);
+        Human lena = new Human("Елена", false, 61, vasya, valentina);
+        Human kostya = new Human("Константин", true, 66, kolya, tanya);
+        Human marina = new Human("Марина", false, 41, kostya, lena);
+        Human maksim = new Human("Максим", true, 38, kostya, lena);
+        Human fedya = new Human("Федор", true, 39, kostya, lena);
+        System.out.println(kostya.toString());
+        System.out.println(kolya.toString());
+        System.out.println(tanya.toString());
+        System.out.println(lena.toString());
+        System.out.println(vasya.toString());
+        System.out.println(valentina.toString());
+        System.out.println(marina.toString());
+        System.out.println(maksim.toString());
+        System.out.println(fedya.toString());
     }
 
     public static class Human {
-        // напишите тут ваш код
+        String name;
+        boolean sex;
+        int age;
+        Human father;
+        Human mother;
+
+        public Human(String name, boolean sex, int age) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+        }
+
+        public Human(String name, boolean sex, int age, Human father, Human mother) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.father = father;
+            this.mother = mother;
+        }
 
         public String toString() {
             String text = "";
