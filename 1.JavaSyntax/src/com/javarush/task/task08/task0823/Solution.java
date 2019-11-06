@@ -31,11 +31,11 @@ public class Solution {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String string = reader.readLine();
         reader.close();
-        StringTokenizer wordsString = new StringTokenizer(string);
+        StringTokenizer wordsString = new StringTokenizer(string); // Класс StringTokeniser и примеры -> http://bit.ly/2qy5xVl
         String upLettersString = "";
         while (wordsString.hasMoreTokens()) {
             String word = wordsString.nextToken();
-            String newWord = word.substring(0,1).toUpperCase() + word.substring(1);
+            String newWord = word.substring(0,1).toUpperCase() + word.substring(1); // О методе substring(), пример -> http://bit.ly/2NmGjT3
             upLettersString = upLettersString + newWord + " ";
         }
         System.out.println(upLettersString);
